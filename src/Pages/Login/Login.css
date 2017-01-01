@@ -1,0 +1,14 @@
+.Login {
+  height: 100%;
+}
+
+.Login .body {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login .body .login-container {
+  text-align: center;
+}

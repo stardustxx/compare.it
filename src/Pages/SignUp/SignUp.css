@@ -1,0 +1,14 @@
+.SignUp {
+  height: 100%;
+}
+
+.SignUp .body {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUp .body .sign-up-container {
+  text-align: center;
+}
