@@ -41,8 +41,14 @@ class Home extends Component {
     this.setState((prevState, props) => {
       for (let i = 0; i < 30; i++) {
         let obj = {
-          "name": i % 2 ? "mountain" : "star",
-          "link": i % 2 ? this.mountainImage : this.starImage
+          optionA: {
+            "name": i % 2 ? "mountain" : "star",
+            "link": i % 2 ? this.mountainImage : this.starImage
+          },
+          optionB: {
+            "name": i % 2 ? "star" : "mountain",
+            "link": i % 2 ? this.starImage : this.mountainImage
+          }
         };
         prevState.listObj.push(obj);
       }
@@ -66,10 +72,14 @@ class Home extends Component {
             {
               this.state.listObj.map((value, index) => {
                 return (
-                  <div key={index}>
-                    <div>
-                      <h1>{value.name}</h1>
-                      <img src={value.link} alt="" />
+                  <div key={index} className="option-container">
+                    <div className="option-one">
+                      <h1>{value.optionA.name}</h1>
+                      <img src={value.optionA.link} alt="" />
+                    </div>
+                    <div className="option-two">
+                      <h1>{value.optionB.name}</h1>
+                      <img src={value.optionB.link} alt="" />
                     </div>
                   </div>
                 )
