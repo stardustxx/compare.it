@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Nav from '../../Components/Nav/Nav';
+import FavoriteButton from '../../Components/FavoriteButton';
 import {browserHistory} from 'react-router'
 import {List} from 'material-ui/List';
 // import Divider from 'material-ui/Divider';
@@ -43,11 +44,13 @@ class Home extends Component {
         let obj = {
           optionA: {
             "name": i % 2 ? "mountain" : "star",
-            "link": i % 2 ? this.mountainImage : this.starImage
+            "link": i % 2 ? this.mountainImage : this.starImage,
+            "liked": false
           },
           optionB: {
             "name": i % 2 ? "star" : "mountain",
-            "link": i % 2 ? this.starImage : this.mountainImage
+            "link": i % 2 ? this.starImage : this.mountainImage,
+            "liked": false
           }
         };
         prevState.listObj.push(obj);
@@ -61,6 +64,16 @@ class Home extends Component {
   // onFabClicked = (event) => {
   //   browserHistory.push("/note");
   // }
+
+  onFavoriteTap = (data, index) => {
+    this.setState((prevState, props) => {
+      let key = Object.keys(data)[0];
+      data[key].liked = !data[key].liked;
+      return {
+        listObj: prevState.listObj
+      };
+    });
+  }
   
   render() {
     return (
@@ -76,10 +89,12 @@ class Home extends Component {
                     <div className="option-one">
                       <h1>{value.optionA.name}</h1>
                       <img src={value.optionA.link} alt="" />
+                      <FavoriteButton data={value.optionA} name="optionA" index={index} onTouchTap={this.onFavoriteTap} />
                     </div>
                     <div className="option-two">
                       <h1>{value.optionB.name}</h1>
                       <img src={value.optionB.link} alt="" />
+                      <FavoriteButton data={value.optionB} name="optionB" index={index} onTouchTap={this.onFavoriteTap} />
                     </div>
                   </div>
                 )
