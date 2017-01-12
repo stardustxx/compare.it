@@ -86,12 +86,12 @@ class Home extends Component {
               this.state.listObj.map((value, index) => {
                 return (
                   <div key={index} className="option-container">
-                    <div className="option-one">
+                    <div className="options option-one">
                       <h1>{value.optionA.name}</h1>
                       <img src={value.optionA.link} alt="" />
                       <FavoriteButton data={value.optionA} name="optionA" index={index} onTouchTap={this.onFavoriteTap} />
                     </div>
-                    <div className="option-two">
+                    <div className="options option-two">
                       <h1>{value.optionB.name}</h1>
                       <img src={value.optionB.link} alt="" />
                       <FavoriteButton data={value.optionB} name="optionB" index={index} onTouchTap={this.onFavoriteTap} />

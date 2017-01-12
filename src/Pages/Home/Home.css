@@ -7,6 +7,12 @@
   display: flex;
 }
 
+.Home .body .options {
+  vertical-align: baseline;
+  flex: 1;
+}
+
 .Home .body .option-container img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 500px;
 }
